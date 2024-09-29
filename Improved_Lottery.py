@@ -1,7 +1,8 @@
-import config
+import random
 
-# This line loads a set of 6 random numbers from the config file
-lottery_numbers = config.lottery_numbers
+lottery_numbers = set(random.sample(range(22), 6))
+
+print(lottery_numbers)
 
 # Here are your players; find out who has the most numbers matching lottery_numbers!
 players = [
@@ -19,6 +20,18 @@ name_list = [player["name"] for player in players]
 number_list = [len(player["numbers"].intersection(lottery_numbers)) for player in players]
 
 player_winnings = dict(zip(name_list, number_list))
+print(player_winnings)
 
-for name, win in player_winnings.items():
-    print(f"{name} won {win*100}")
+highest_winning_player = None
+highest_wins = 0
+
+for player, win in player_winnings.items():
+    if highest_wins < win:
+        highest_wins = win
+        highest_winning_player = player
+else:
+    print(f"{highest_winning_player} won {100**highest_wins}")
+    
+
+
+
