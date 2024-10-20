@@ -13,9 +13,8 @@ import pprint
 
 
 def load_csv(path: str, mode: str='r') -> typing.List:
-    file_pointer = open(path, mode)
-    file = file_pointer.readlines()
-    file_pointer.close()
+    with open(path, mode) as file_pointer:
+        file = file_pointer.readlines()
     return file
 
 def prepare_data(file: typing.List) -> typing.List:
@@ -32,9 +31,8 @@ def prepare_data(file: typing.List) -> typing.List:
 
 def load_json(my_list: typing.List, json_file_path: str, mode:str = 'w') -> None:
     # json_obj = json.dump(my_json)
-    json_file = open(json_file_path, mode)
-    json.dump(my_list,json_file,indent=4)
-    json_file.close()
+    with open(json_file_path, mode) as json_file:
+        json.dump(my_list,json_file,indent=4)
     return None
 
 my_data = load_csv('./csv_file.txt')
