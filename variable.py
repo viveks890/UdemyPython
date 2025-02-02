@@ -1,3 +1,3 @@
-age = 30
+a = range(10)
 
-print(age)
+print(type(a))
