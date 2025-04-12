@@ -6,8 +6,12 @@
 start_point = 1
 
 while start_point <= 100:
-    if start_point % 3 == 0:
-        print("Fizz")
+    if start_point % 3  ==0 and start_point%5 == 0:
+        print("FizzBuzz")
     elif start_point % 5 == 0:
         print("Buzz")
-    elif start_point % 3  ==0 and start_point%5 == 0
+    elif start_point % 3  ==0:
+        print("Fizz")
+    else:
+        print(start_point)
+    start_point += 1
