@@ -1,23 +1,35 @@
-# We have provided you with two variables:
+# Lottery numbers
 
-# nearby_people = {'Rolf', 'Jen', 'Anna'}
-# user_friends = set() # This is an empty set, like {}
-# In this exercise, ask the user for the name of a friend. Add this name to the user_friends set provided.
+# In this problem, we've provided you with a set of lottery numbers:
 
-# Finally, print out a set that contains only the name of the friend if the friend is in the nearby_people set.
+# lottery_numbers = {13, 21, 22, 5, 8}
+# You must define a list of two players, each with a name and another set of numbers.
 
-# You'll want to calculate the intersection between two sets, and print the result out.
+# Players in your list should be dictionaries following this format:
 
-lottery_numbers = {13, 21, 22, 5, 8}
+# {
+#     'name': 'PLAYER_NAME',
+#     'numbers': {1, 2, 3, 4, 5}
+# }
+# You can come up with each player name and numbers!
 
+# Printing out their luck
 
-"""
-A player looks like this:
+# Then for each player, print out a nice string that contains their name and how many numbers they got right (as we've done before, you can intersect their numbers with the lottery_numbers  variable provided). You'll then need to calculate the length of the resulting set to get how many numbers they got right.
 
-{
-    'name': 'PLAYER_NAME',
-    'numbers': {1, 2, 3, 4, 5}
-}
+# This string doesn't have to have a particular format, it just must include both the name and how many numbers they got right.
 
-Define a list with two players (you can come up with their names and numbers).
-"""
+lottery_numbers = {12,21, 22, 5,8}
+
+players = [
+           {"name":"player1", "numbers":{1,2,3,4,5}},
+           {"name":"player2", "numbers":{12,2,8,4,5}}
+           ]
+
+def luck():
+    for player in players:
+        name = player["name"]
+        matching_nums = player["numbers"].intersection(lottery_numbers)
+        print(f"Player {name} got {len(matching_nums)} numbers right i.e {matching_nums}")
+
+luck()
