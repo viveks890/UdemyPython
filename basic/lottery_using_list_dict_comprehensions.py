@@ -18,10 +18,20 @@
 
 import random
 
-win_list = []
+win_set = set()
 
-for n in range(10):
-    
+for n in range(6):
+    win_set.add(random.randint(0,20))
 
+players = [
+    {'name': 'Rolf', 'numbers': {1, 3, 5, 7, 9, 11}},
+    {'name': 'Charlie', 'numbers': {2, 7, 9, 21, 10, 5}},
+    {'name': 'Anna', 'numbers': {13, 14, 15, 16, 17, 18}},
+    {'name': 'Jen', 'numbers': {19, 20, 12, 7, 3, 5}}
+]
 
-print(win_nums)
+print(win_set)
+
+for player in players:
+    wins = len(player['numbers'].intersection(win_set))
+    print(f"{player['name']} won {wins}")
