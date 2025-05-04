@@ -20,7 +20,7 @@ import random
 
 win_set = set()
 
-for n in range(6):
+for n in range(7):
     win_set.add(random.randint(0,20))
 
 players = [
@@ -36,7 +36,7 @@ top_player = players[0]
 
 for player in players:
     wins = len(player['numbers'].intersection(win_set))
-    if wins > len(top_player[numbers]):
+    if wins > len(top_player['numbers'].intersection(win_set)):
         top_player = player
 
-print(f"")
+print(f"winner is {top_player['name']}, numbers are {top_player['numbers']}")
