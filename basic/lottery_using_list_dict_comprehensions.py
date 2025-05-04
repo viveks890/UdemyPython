@@ -30,8 +30,13 @@ players = [
     {'name': 'Jen', 'numbers': {19, 20, 12, 7, 3, 5}}
 ]
 
-print(win_set)
+print(f"winning set is : {win_set}")
+
+top_player = players[0]
 
 for player in players:
     wins = len(player['numbers'].intersection(win_set))
-    print(f"{player['name']} won {wins}")
+    if wins > len(top_player[numbers]):
+        top_player = player
+
+print(f"")
